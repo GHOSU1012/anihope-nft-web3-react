@@ -25,6 +25,7 @@ const ColumnDiv = styled.div`
     flex-direction: column;
     font-size: 10px;
     padding: 20px;
+    padding-left: 40px;
 `
 const Button = styled.button`
     background-image: ${props => props.img};
