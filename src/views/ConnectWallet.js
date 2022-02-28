@@ -45,7 +45,17 @@ const ConnectWallet = () => {
         if (window.ethereum) {
             const accounts = await window.ethereum.request({ method: 'eth_accounts' });
             const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+            console.log('success');
+
+            if (chainId != '0x1') {
+                alert("Please connect to Mainnet");
+            } else {
+                let wallet = accounts[0];
+                // setWalletAddress(wallet);
+                console.log(wallet);
+            }
         } else {
+            console.log('fail');
             // Show alert if Ethereum provider is not detected
             alert("Please install Mask");
         }
