@@ -19,7 +19,7 @@ class App extends React.Component {
       <>
         <Stddiv >
           <div style={{ width: '48%' }}>
-            <div style={{ padding: '80px', color: 'white', fontSize: '30px', fontWeight: 'bold' }}>ANYHOPE</div>
+            <div style={{ padding: '80px', color: 'white', fontSize: '30px', fontWeight: 'bold', marginBottom:'20px'}}>ANYHOPE</div>
             {/* <Leftdiv> */}
               <ConnectWallet />
             {/* </Leftdiv> */}
