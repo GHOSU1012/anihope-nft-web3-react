@@ -22,8 +22,8 @@ const ColumnDiv = styled.div`
     display: flex;
     flex-direction: column;
 `
-const Button = styled.button < { img: string } > `
-    background-image: url('images/discord.png');
+const Button = styled.button`
+    background-image: ${props=>props.img}
     width: 30px;
     height: 30px;
     background-size: contain;
@@ -39,9 +39,9 @@ class Footer extends React.Component {
                     TERMS & CONTIDIONS <br /> PRIVACY POLICY <br /> @2022 ANIHOPE
                 </ColumnDiv>
                 <RowDiv>
-                    <Button img="images/discord.png"></Button>
-                    <Button img="images/discord.png"></Button>
-                    <Button img="images/discord.png"></Button>
+                    <Button img="url('images/discord.png')"></Button>
+                    <Button img="url('images/twitter.png')"></Button>
+                    <Button img="url('images/instagram.png')"></Button>
                 </RowDiv>
             </StdDiv>
         )
