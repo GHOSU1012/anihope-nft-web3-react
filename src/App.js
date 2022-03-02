@@ -53,8 +53,10 @@ const Branddiv = styled.div`
   }
   @media (orientation: portrait) {
     font-size: 30px;
-    top: calc(100vw * 0.88 - 50px);
-    right: 20px;
+    // top: calc(100vw * 0.88 - 50px);
+    top: 80px;
+    // right: 20px;
+    left: 20px;
   }
 `
 

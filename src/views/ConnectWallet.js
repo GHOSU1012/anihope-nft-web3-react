@@ -35,6 +35,7 @@ const Ntfcount = styled.input`
     font-size: 20px;
     color: white;
     outline: 0;
+    margin: 20px;
 `
 
 // const ControlBtn = styled.button`
@@ -50,15 +51,16 @@ const title = {
     'connected': 'Conncted with Address',
     'notconnected': 'Connect your wallet'
 }
-const title2 = {
-    'state2': 'Choose the amount of NFTs you want to mint (Max 3)',
-    'state3': 'You already minted your AniHOPE NFTs',
-    'state4': 'You are not on the ANILIST. Please wait for the public mint.'
-}
+const title2 = ['', '',
+    'Choose the amount of NFTs you want to mint (Max 3)',
+    'You already minted your AniHOPE NFTs',
+    'You are not on the ANILIST. Please wait for the public mint.'
+]
+
 const btntitle = {
     'state1': 'Connect',
     'state2': 'Mint',
-    'state3': 'View on Opensesa'
+    'state3': 'View on Opensea'
 }
 
 
@@ -69,39 +71,23 @@ const btntitle = {
 // }
 
 const ConnectWallet = () => {
-    const { connect, disconnect, isActive, account } = useMetaMask();
     const [state, setOpen] = useState(1);
     const [nftNum, setNftNum] = useState(1);
+    const { connect, disconnect, isActive, account } = useMetaMask();
 
     useEffect(() => {
         if (isActive)
             setOpen(2);
+        else
+            setOpen(1);
     });
-    // const buttonClickF = async () => {
-    //     console.log(state);
 
-    //     // const connectWallet = async () => {
-    //     // Check if MetaMask is installed on user's browser
-    //     if (window.ethereum) {
-    //         const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-    //         const chainId = await window.ethereum.request({ method: 'eth_chainId' });
-    //         console.log('success');
-
-    //         if (chainId != '0x1') {
-    //             alert("Please connect to Mainnet");
-    //         } else {
-    //             let wallet = accounts[0];
-    //             // setWalletAddress(wallet);
-    //             console.log(wallet);
-    //         }
-    //     } else {
-    //         console.log('fail');
-    //         // Show alert if Ethereum provider is not detected
-    //         alert("Please install Mask");
-    //     }
-    //     // }
-    //     // history.pushState('/home');
-    // }
+    const ReduceFunc = () => {
+        setNftNum(nftNum > 1 ? nftNum - 1 : nftNum);
+    }
+    const AddFunc = () => {
+        setNftNum(nftNum < 3 ? nftNum + 1 : nftNum);
+    }
 
     return (
         <WalletDiv>
@@ -117,29 +103,29 @@ const ConnectWallet = () => {
             }
 
             <div style={{ fontSize: '14px', marginBottom: '16px' }}>
-                {state == 2 ? title2.state2 :
-                    state == 3 ? title2.state3 :
-                        state == 4 ? title2.state4 : ''}
+                {title2[state]}
             </div>
 
             {state == 2 ?
                 <div className="d-flex flex-row align-items-center" style={{ gap: '10px' }}>
-                    <MyBtn type='reduce' onClick={() => { setNftNum(nftNum - 1) }} />
+                    <MyBtn type='reduce' onClick={ReduceFunc} />
                     <Ntfcount value={nftNum} readOnly />
-                    <MyBtn type='add' onClick={() => { setNftNum(nftNum + 1) }} />
+                    <MyBtn type='add' onClick={AddFunc} ></MyBtn>
                 </div> : <></>
             }
-            <Button variant="contained" onClick={connect} style={{
-                background: 'white', color: 'black', width: '260px',
-                height: '60px', display: state == 4 ? 'none' : 'block'
-            }}>
+            <Button variant="contained" onClick={connect}
+                style={{
+                    background: 'white', color: 'black', width: '260px',
+                    height: '60px', display: state == 4 ? 'none' : 'block',
+                    marginBottom: '50px'
+                }}>
                 {state == 1 ?
                     btntitle.state1 :
                     state == 2 ?
                         btntitle.state2 :
                         <>
                             {btntitle.state3}
-                            < img src='images/digitalocean.png' width='20px' height='20px' style={{ marginLeft: '10px' }}></img>
+                            < img src='images/digitalocean.png' width='20px' height='20px' style={{ marginLeft: '10px' }} />
                         </>
                 }
             </Button>

@@ -37,7 +37,7 @@ export default function NoticeAlert() {
   return (
     <Box sx={{ width: '100%', position: 'fixed', top: '0' }}>
       <Collapse in={open}>
-        <StdDiv>
+        <StdDiv style={{display:'none'}}>
           <div style={{ paddingLeft: '50px' }}>
             <StdNotice> Notice </StdNotice>
           </div>
