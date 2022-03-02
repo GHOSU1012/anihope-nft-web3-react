@@ -11,14 +11,20 @@ const StdDiv = styled.div`
   background: #8ab273;
   padding: 0;
   width: 100%;
-  display: flex;
+  display: flex !important;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 4px;
-  // padding-left: 20px;
-  // padding-right: 10px;
   font-size: 14px;
+
+  @media (orientation: landscape) {
+    display: block;
+  }
+
+  @media (orientation: portrait) {
+    display: none !important;
+  }
 `
 const StdNotice = styled.div`
   border-radius: 3px;
@@ -37,7 +43,7 @@ export default function NoticeAlert() {
   return (
     <Box sx={{ width: '100%', position: 'fixed', top: '0' }}>
       <Collapse in={open}>
-        <StdDiv style={{display:'none'}}>
+        <StdDiv>
           <div style={{ paddingLeft: '50px' }}>
             <StdNotice> Notice </StdNotice>
           </div>

@@ -25,10 +25,11 @@ const RowDiv = styled.div`
     flex-direction: column;
     @media (orientation: portrait) {
         flex-direction: row !important;
+        padding: 0px;
         // justify-content: center;
     }
     gap: 20px;
-    padding-top: 20px;
+    padding-top: 60px;
 `
 const RowDiv2 = styled.div`
     display: flex;
@@ -85,7 +86,7 @@ class Righter extends React.Component {
             <StdDiv>
                 <Shadow />
                 <RowDiv>
-                    <Button img="url('images/twitter.png')"></Button>
+                    <Button img="url('images/logo.png')"></Button>
                     <Button img="url('images/instagram.png')"></Button>
                 </RowDiv>
                 <RowDiv2>
