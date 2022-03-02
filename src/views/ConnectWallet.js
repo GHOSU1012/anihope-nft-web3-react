@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components'
 import Button from '@mui/material/Button';
 
+import { useState, useEffect } from 'react';
+import { injected } from '../components/wallet/connectors';
+import useMetaMask from '../hooks/metamask';
+
 // const opensea = () => {
 //     <img src='images/digitalocean.png'></img>
 // }
@@ -43,47 +47,45 @@ const btntitle = {
 // }
 
 const ConnectWallet = () => {
+    const { connect, disconnect, isActive, account } = useMetaMask();
     const [state, setOpen] = useState(3);
 
-    const buttonClickF = async () => {
-        console.log(state);
+    // const buttonClickF = async () => {
+    //     console.log(state);
 
-        // const connectWallet = async () => {
-        // Check if MetaMask is installed on user's browser
-        if (window.ethereum) {
-            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-            const chainId = await window.ethereum.request({ method: 'eth_chainId' });
-            console.log('success');
+    //     // const connectWallet = async () => {
+    //     // Check if MetaMask is installed on user's browser
+    //     if (window.ethereum) {
+    //         const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+    //         const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+    //         console.log('success');
 
-            if (chainId != '0x1') {
-                alert("Please connect to Mainnet");
-            } else {
-                let wallet = accounts[0];
-                // setWalletAddress(wallet);
-                console.log(wallet);
-            }
-        } else {
-            console.log('fail');
-            // Show alert if Ethereum provider is not detected
-            alert("Please install Mask");
-        }
-        // }
-        // history.pushState('/home');
-    }
+    //         if (chainId != '0x1') {
+    //             alert("Please connect to Mainnet");
+    //         } else {
+    //             let wallet = accounts[0];
+    //             // setWalletAddress(wallet);
+    //             console.log(wallet);
+    //         }
+    //     } else {
+    //         console.log('fail');
+    //         // Show alert if Ethereum provider is not detected
+    //         alert("Please install Mask");
+    //     }
+    //     // }
+    //     // history.pushState('/home');
+    // }
+
     return (
         <WalletDiv>
             <div style={{ fontSize: '22px', marginBottom: '16px' }}>
                 {state == 1 ? title.notconnected : title.connected}
             </div>
 
-            <div>
-                
-            </div>
-
             {state > 1 ?
                 <Addressdiv>
                     <img src="images/metamask.png" width='30px' />
-                    <div>0x48...2f</div>
+                    <div>{account}</div>
                 </Addressdiv> : <></>
             }
 
@@ -93,7 +95,7 @@ const ConnectWallet = () => {
                         state == 4 ? title2.state4 : ''}
             </div>
 
-            <Button variant="contained" onClick={buttonClickF} style={{
+            <Button variant="contained" onClick={connect} style={{
                 background: 'white', color: 'black', width: '260px',
                 height: '60px', display: state == 4 ? 'none' : 'block'
             }}>
