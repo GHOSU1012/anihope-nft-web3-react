@@ -43,7 +43,7 @@ const btntitle = {
 // }
 
 const ConnectWallet = () => {
-    const [state, setOpen] = useState(1);
+    const [state, setOpen] = useState(3);
 
     const buttonClickF = async () => {
         console.log(state);
