@@ -9,44 +9,61 @@ const StdDiv = styled.div`
     @media (orientation: landscape) {
         flex-direction: column;
         height: calc(100% - 70px);
-        width: 100%;
         right: 0;
-        align-items: center;
     }
-
+    
     @media (orientation: portrait) {
         flex-direction: row;
-        height: 70px;
         width: 100%;
         left: 0;
-        justify-content: space-between;
     }
+    align-items: center;
+    justify-content: space-between;
 `
 const RowDiv = styled.div`
     display: flex;
     flex-direction: column;
+    @media (orientation: portrait) {
+        flex-direction: row !important;
+        // justify-content: center;
+    }
     gap: 20px;
     padding-top: 20px;
-    // padding: 20px;
-    // jsutify-content: between;
-`
-const Shadow = styled.div`
-    background: red;
-    position: fixed;
-    width: 70px;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.5;
 `
 const RowDiv2 = styled.div`
     display: flex;
-    flex-direction: column;
     padding: 20px;
     gap: 28px;
+    
+    // flex-direction: column;
+    
+    @media (orientation: landscape) {
+        flex-direction: column;
+        // justify-content: center;
+    }
+    @media (orientation: portrait) {
+        flex-direction: row;
+        // justify-content: center;
+    }
     justify-content: center;
-    // align-items: center;
     flex: 1;
 `
+
+const Shadow = styled.div`
+    background: #000;
+    position: fixed;
+    @media (orientation: landscape) {
+        width: 70px;
+        height: 100%;
+    }
+    @media (orientation: portrait) {
+        height: 70px;
+        width: 100%;
+    }
+    z-index: -1;
+    opacity: 0.1;
+`
+
 const Button = styled.button`
     background-image: ${props => props.img};
     width: 30px;
