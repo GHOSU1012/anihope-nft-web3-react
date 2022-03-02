@@ -36,10 +36,18 @@ const btntitle = {
     'state3': 'View on Opensesa'
 }
 
+// const walletInfo = {
+//     'metamask':'',
+//     'coinbase':'',
+//     'walletcore':''
+// }
+
 const ConnectWallet = () => {
-    const [state, setOpen] = useState(2);
+    const [state, setOpen] = useState(1);
+
     const buttonClickF = async () => {
         console.log(state);
+
         // const connectWallet = async () => {
         // Check if MetaMask is installed on user's browser
         if (window.ethereum) {
@@ -68,10 +76,16 @@ const ConnectWallet = () => {
                 {state == 1 ? title.notconnected : title.connected}
             </div>
 
-            <Addressdiv>
-                <img src="images/metamask.png" width='30px' />
-                <div>0x48...2f</div>
-            </Addressdiv>
+            <div>
+                
+            </div>
+
+            {state > 1 ?
+                <Addressdiv>
+                    <img src="images/metamask.png" width='30px' />
+                    <div>0x48...2f</div>
+                </Addressdiv> : <></>
+            }
 
             <div style={{ fontSize: '14px', marginBottom: '16px' }}>
                 {state == 2 ? title2.state2 :

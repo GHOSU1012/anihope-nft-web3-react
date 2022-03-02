@@ -2,18 +2,25 @@ import React from 'react';
 import styled from 'styled-components'
 
 const StdDiv = styled.div`
-    // background: #000;
-    // background-opacity: 0.2;
-    height: calc(100% - 70px);
-    // min-height: 20px;
-    // color: white;
-    position: fixed;
-    right: 0;
-    top: 0;
+    position: fixed;    
     display: flex;
-    flex-direction: column;
-    // justify-content: space-between;
-    align-items: center;
+    top: 0;
+
+    @media (orientation: landscape) {
+        flex-direction: column;
+        height: calc(100% - 70px);
+        width: 100%;
+        right: 0;
+        align-items: center;
+    }
+
+    @media (orientation: portrait) {
+        flex-direction: row;
+        height: 70px;
+        width: 100%;
+        left: 0;
+        justify-content: space-between;
+    }
 `
 const RowDiv = styled.div`
     display: flex;
@@ -24,12 +31,12 @@ const RowDiv = styled.div`
     // jsutify-content: between;
 `
 const Shadow = styled.div`
-    background: #000;
+    background: red;
     position: fixed;
     width: 70px;
     height: 100%;
     z-index: -1;
-    opacity: 0.1;
+    opacity: 0.5;
 `
 const RowDiv2 = styled.div`
     display: flex;
@@ -48,6 +55,12 @@ const Button = styled.button`
     background-color: transparent;
     border: none;
 `
+
+// const Responsive = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+// `
 
 class Righter extends React.Component {
     render() {

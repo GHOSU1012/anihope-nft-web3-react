@@ -12,6 +12,10 @@ const StdDiv = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    @media (orientation: portrait) {
+        display: none;
+    }
 `
 const RowDiv = styled.div`
     display: flex;

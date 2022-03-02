@@ -7,7 +7,13 @@ import ConnectWallet from './views/ConnectWallet'
 
 const Stddiv = styled.div`
   display: flex;
-  flex-direction: row;
+  @media (max-width: 768px){
+    flex-direction: column;
+  }
+  @media (min-width: 768px){
+    flex-direction: row;
+  }
+  // flex-direction: row;
 `
 const StdImg = styled.img`
   width: 100%;
@@ -18,11 +24,9 @@ class App extends React.Component {
     return (
       <>
         <Stddiv >
+          <div style={{  color: 'white', fontSize: '30px', fontWeight: 'bold',  position: 'fixed' }}>ANYHOPE</div>
           <div style={{ width: '48%' }}>
-            <div style={{ padding: '80px', color: 'white', fontSize: '30px', fontWeight: 'bold', marginBottom:'20px'}}>ANYHOPE</div>
-            {/* <Leftdiv> */}
-              <ConnectWallet />
-            {/* </Leftdiv> */}
+            <ConnectWallet />
           </div>
           <div style={{ width: '52%' }}>
             <StdImg src="images/main.jpg" />
