@@ -18,6 +18,7 @@ const Stddiv = styled.div`
 }
 `
 const CWdiv = styled.div`
+padding-top: 18%;
   @media (orientation: landscape) {
     width: 48%;
     // order: 1;
@@ -31,11 +32,12 @@ const CWdiv = styled.div`
 const MImgdiv = styled.div`
   @media (orientation: landscape) {
     width: 52%;
+    height: 100vh;
     // order: 2;
   }
   @media (orientation: portrait) {
     width: 100%;
-    height: 42%;
+    height: calc(100vw * 0.88);
     // order: 1;
   }
 `
@@ -51,14 +53,14 @@ const Branddiv = styled.div`
   }
   @media (orientation: portrait) {
     font-size: 30px;
-    top: 40%;
+    top: calc(100vw * 0.88 - 50px);
     right: 20px;
   }
 `
 
 const StdImg = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
   alt: mainImage;
 `
 
