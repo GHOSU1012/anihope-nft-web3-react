@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import Button from '@mui/material/Button';
 import MyBtn from '../components/MyBtn';
-
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+// import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 import useMetaMask from '../hooks/metamask';
 
@@ -38,6 +42,30 @@ const Ntfcount = styled.input`
     outline: 0;
     margin: 20px;
 `
+
+const ModalStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '300',
+    bgcolor: 'background.paper',
+    borderRadius: '10px',
+    boxShadow: '24',
+    p: '20px',
+    // textAlign: 'center'
+};
+
+const BtnStyle = {
+    color: 'black',
+    fontSize: '16px',
+    padding: '16px',
+    width: '260px',
+    borderRadius: '10px',
+    justifyContent: 'left',
+    paddingLeft: '30px',
+    gap: '20px'
+}
 
 // const ControlBtn = styled.button`
 //     background: white;
@@ -75,6 +103,9 @@ const ConnectWallet = () => {
     const [state, setOpen] = useState(1);
     const [nftNum, setNftNum] = useState(1);
     const { connect, disconnect, isActive, account } = useMetaMask();
+    const [open, setModalOpen] = useState(false);
+    const handleOpen = () => setModalOpen(true);
+    const handleClose = () => setModalOpen(false);
 
     useEffect(() => {
         if (isActive)
@@ -88,6 +119,29 @@ const ConnectWallet = () => {
     }
     const AddFunc = () => {
         setNftNum(nftNum < 3 ? nftNum + 1 : nftNum);
+    }
+
+    const SelectWalletModal = (props) => {
+        return (
+            <Modal open={open} onClose={handleClose}>
+                <Box sx={ModalStyle}>
+                    <Button variant="text" sx={BtnStyle}>
+                        <img src='images/metamask.png' width='50px' />
+                        <div>Metamask</div>
+                    </Button>
+                    <Divider />
+                    <Button variant="text" sx={BtnStyle}>
+                        <img src='images/walletconnect.png' width='50px' />
+                        <div>WalletConnect</div>
+                    </Button>
+                    <Divider />
+                    <Button variant="text" sx={BtnStyle}>
+                        <img src='images/coinbase.png' width='50px' />
+                        <div>Coinbase</div>
+                    </Button>
+                </Box>
+            </Modal>
+        );
     }
 
     return (
@@ -114,7 +168,7 @@ const ConnectWallet = () => {
                     <MyBtn type='add' onClick={AddFunc} ></MyBtn>
                 </div> : <></>
             }
-            <Button variant="contained" onClick={connect}
+            <Button variant="contained" onClick={handleOpen}
                 style={{
                     background: 'white', color: 'black', width: '260px',
                     height: '60px', display: state == 4 ? 'none' : 'block'
@@ -129,6 +183,8 @@ const ConnectWallet = () => {
                         </>
                 }
             </Button>
+
+            <SelectWalletModal />
         </WalletDiv >
     );
 };
