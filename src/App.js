@@ -20,14 +20,19 @@ const Stddiv = styled.div`
 }
 `
 const CWdiv = styled.div`
-padding-top: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+// padding-top: 18%;
   @media (orientation: landscape) {
     width: 48%;
     // order: 1;
   }
   @media (orientation: portrait) {
     width: 100%;
-    height: 58%;
+    // height: 58%;
+    margin-top: 40px;
+    margin-bottom: 80px;
     // order: 2;
   }
 `
@@ -67,7 +72,7 @@ const Branddiv = styled.div`
 
 const StdImg = styled.img`
   width: 100%;
-  height: 100%;
+  // height: 100%;
   alt: mainImage;
 
   @media (orientation: portrait) {
@@ -88,8 +93,8 @@ class App extends React.Component {
             <StdImg src="images/main.jpg" />
           </MImgdiv>
         </Stddiv>
-        {/* <Try /> */}
-        {/* <Footer /> */}
+        <Try />
+        <Footer style={{zIndex: '12'}}/>
         <NoticeAlert />
       </>
     )

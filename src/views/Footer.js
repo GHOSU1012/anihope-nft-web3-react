@@ -12,6 +12,7 @@ const StdDiv = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    z-index: 12;
 
     @media (orientation: portrait) {
         display: none;

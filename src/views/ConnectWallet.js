@@ -14,7 +14,8 @@ const WalletDiv = styled.div`
   flex-direction: column;
   align-items: center;
   color: white;
-  justify-content: center;
+//   justify-content: center;
+//   margin-bottom: 80px;
 `
 const Addressdiv = styled.div`
     display: flex;
@@ -116,8 +117,7 @@ const ConnectWallet = () => {
             <Button variant="contained" onClick={connect}
                 style={{
                     background: 'white', color: 'black', width: '260px',
-                    height: '60px', display: state == 4 ? 'none' : 'block',
-                    marginBottom: '50px'
+                    height: '60px', display: state == 4 ? 'none' : 'block'
                 }}>
                 {state == 1 ?
                     btntitle.state1 :
