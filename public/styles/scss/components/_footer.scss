@@ -1,0 +1,115 @@
+// ---------------------------------------- //
+// -------------- Basic Setup ------------- //
+// ---------------------------------------- //
+footer {
+    background-color: $color-black3;
+    padding: 50px 0;
+}
+
+footer {
+    .footer-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 100px;
+        
+        @media screen and (max-width: $media-lg) {
+            flex-direction: column;
+        }
+        @media screen and (max-width: $media-md) {
+            padding-right: 0;
+        }
+    }
+
+}
+
+
+// ---------------------------------------- //
+// ---------------- Brand ----------------- //
+// ---------------------------------------- //
+footer {
+    .footer-container {
+        .copyright {
+            h2 {
+                text-transform: uppercase;
+                color: $color-white;
+                font-family: $font-fatFrank;
+                font-size: 50px;
+            }
+
+            p {
+                color: $color-gray;
+                font-size: 14px;
+            }
+
+            @media screen and (max-width: $media-lg) {
+                @include flexCenter(column);
+                margin-bottom: 50px;
+                text-align: center;
+            }
+        }
+
+        
+    }
+}
+
+
+// ---------------------------------------- //
+// ------- Middle Button (Discord) -------- //
+// ---------------------------------------- //
+footer {
+    .btns {
+        img {
+            width: 150px;
+        }
+
+        @media screen and (max-width: $media-lg) {
+            @include flexCenter(column);
+            margin-bottom: 50px;
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ---------- Social Media Links ---------- //
+// ---------------------------------------- //
+footer {
+    .icons {
+        @include flexCenter();
+
+        a:link,
+        a:visited {
+            @include flexCenter();
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+
+            &:not(:last-of-type) {
+                margin-right: 20px;
+            }
+
+            &.link-twitter {
+                background-color: $color-white;
+            }
+            &.link-instagram {
+                background: #f09433; 
+                background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+                background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+            }
+
+            ion-icon {
+                font-size: 25px;
+
+                &[name="logo-twitter"] {
+                    color: $color-blue;
+                }
+                &[name="logo-instagram"] {
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}

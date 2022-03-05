@@ -1,0 +1,311 @@
+// ---------------------------------------- //
+// -------------- Basic Setup ------------- //
+// ---------------------------------------- //
+#collection {
+    padding: 120px 0;
+}
+
+#collection {
+    .collection-top,
+    .collection-bottom {
+        @media screen and (max-width:1400px) {
+            padding-right: 100px;
+        }
+        @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+            padding-right: unset;
+        }
+    }
+
+    .collection-top {
+        display: flex;
+        margin-bottom: 100px;
+        @media screen and (max-width: $media-lg) {
+            flex-direction: column;
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ------------ Collection Top ------------ //
+// ---------------------------------------- //
+#collection {
+    .top-image-container {
+        @media screen and (max-width: $media-lg) {
+            @include flexCenter();
+        }
+        @media screen and (max-width: $media-sm) {
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 480px;
+            @media screen and (max-width:$media-xl) {
+                max-width: 350px;
+            }
+            @media screen and (max-width:$media-lg) {
+                border-radius: 50%;
+            }
+            @media screen and (max-width:$media-md) {
+                max-width: 300px;
+            }  
+            @media screen and (max-width: $media-sm) {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+#collection {
+    .collection-top {
+        .top-phrase-container {
+            padding-right: 50px;
+            color: $color-white;
+
+            .highlighted-header {
+                font-family: $font-roboto;
+                font-weight: 700;
+                font-size: 18px;
+                color: $color-primary;
+                margin-bottom: 17px;
+            }
+
+            @media screen and (max-width: $media-lg) {
+                margin-bottom: 70px;
+                padding-right: unset;
+            }
+
+            h2 {
+                font-family: $font-helloGorgeous;
+                font-size: 50px;
+                letter-spacing: 4px;
+                margin-bottom: 35px;
+                white-space: nowrap;
+                
+                @media screen and (max-width: $media-sm) {
+                    font-size: 33px;
+                }
+            }
+
+            .content {
+                margin-bottom: 50px;
+                p {
+                    margin-bottom: 27px;
+                    line-height: 1.5;;
+
+                    @media screen and (max-width: $media-sm) {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .link-container {
+                display: flex;
+
+                @media screen and (max-width: $media-lg) {
+                    @include flexCenter();
+                }
+
+                .link-twitter:link,
+                .link-twitter:visited {
+                    @include flexCenter();
+                    font-family: $font-roboto;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    background-color: $color-white;
+                    color: $color-black;
+                    width: 260px;
+                    height: 53px;
+                    margin-left: auto;
+                    border-radius: 5px;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        transform: translateY(-5px);
+                    }
+          
+                    & span:nth-child(1) {
+                        margin-right: 10px;
+                    } 
+
+                    ion-icon {
+                        font-size: 20px;
+                    }
+
+                    @media screen and (max-width: $media-lg) {
+                        margin-left: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------- Collection Bottom ---------- //
+// ---------------------------------------- //
+#collection {
+    .collection-bottom {
+        .top-section {
+
+            .img-container {
+                img {
+                    display: block;
+                    margin: 0 auto;
+
+                    @media screen and (max-width: $media-sm) {
+                        max-width: 100%;
+                    }
+                }
+            }
+            .brands-container {
+                border-radius: 5px;
+                border: 1px solid $color-white-02;
+                padding: 50px 0;
+
+                @media screen and (max-width: 1400px) {
+                    max-width: 900px;
+                    margin: auto;
+                }
+                @media screen and (max-width: $media-lg) {
+                    max-width: 850px;
+                }
+
+                h3 {
+                    font-family: $font-alegreSans;
+                    font-size: 40px;
+                    text-align: center;
+                    margin-bottom: 30px;
+                    color: $color-white;
+                    padding: 0 20px;
+
+                    @media screen and (max-width: $media-sm) {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ------------- Brands Slider ------------ //
+// ---------------------------------------- //
+#collection {
+    .brands-slider {
+        padding: 20px;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;	
+        position: relative;
+        display: flex;
+
+        div { 
+            display: flex;
+            position: relative;
+            justify-content: space-around;
+        }
+        img {
+            width: auto;
+        }
+    }
+
+    .brands-slider {
+        div {
+            animation: infiniteScroll 50s linear infinite;
+        }
+        img {
+            height: 42px;
+            margin: 0 30px;
+        } 
+    }
+
+    @keyframes infiniteScroll {
+        0%   { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+    }
+}
+
+
+// ---------------------------------------- //
+// -------------- Owl Carousel ------------ //
+// ---------------------------------------- //
+#collection {
+    .teasers-slider {
+        padding-top: 70px;
+        max-width: 100%;
+        overflow-x: hidden;
+
+        .owl-carousel  {
+            .owl-stage-outer {
+                overflow: unset;
+            }
+            .owl-stage {
+                margin-bottom: 40px;
+            }
+        }
+            
+        .owl-carousel .owl-item img {
+            border-radius: 5px !important;
+            transition: all 0.3s;
+
+            &:hover {
+                transform: scale(1.3);
+            } 
+        }
+
+        .owl-carousel .owl-nav button {
+            &.owl-prev,
+            &.owl-next {
+                font-size: 40px;
+                margin: 0 20px;
+                background-color: $color-white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s;
+
+                &:hover {
+                    background-color: $color-white-08;
+                }
+
+                span {
+                    margin-top: -8px;
+                }
+            }
+
+            &.owl-prev span {
+                margin-left: -2px;
+            }
+            &.owl-next span {
+                margin-right: -2px;
+            }
+        }
+        
+        .owl-theme .owl-dots, 
+        .owl-theme .owl-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: unset;
+            margin-bottom: 20px;
+        }
+
+        .owl-theme .owl-dots .owl-dot span {
+            background-color: $color-gray;
+        }
+        .owl-theme .owl-dots .owl-dot.active span {
+            background-color: $color-primary;
+        }
+        .owl-theme .owl-nav [class*=owl-]:hover {
+            background: unset;
+            color: inherit;
+        }
+        
+    }
+}

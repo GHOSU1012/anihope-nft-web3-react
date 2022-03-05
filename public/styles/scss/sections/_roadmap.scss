@@ -1,0 +1,444 @@
+// ---------------------------------------- //
+// -------------- Basic Setup ------------- //
+// ---------------------------------------- //
+#roadmap {
+    padding: 80px 0 80px 0;
+}
+
+#roadmap {
+    .section-title {
+        @include flexCenter();
+        max-width: 500px;
+        margin: 0 auto;
+
+        @media screen and (max-width: $media-lg) {
+            max-width: 390px;
+        }
+        @media screen and (max-width: $media-md) {
+            max-width: 330px;
+        }
+        @media screen and (max-width: $media-sm) {
+            max-width: 100%;
+        }
+
+        h2 {
+            color: $color-white;
+            font-family: $font-fatFrank;
+            font-size: 150px;
+            text-transform: uppercase;
+            margin: 0 auto;
+            width: 100%;
+            line-height: 0.85;
+            
+            @media screen and (max-width: $media-lg) {
+                font-size: 120px;
+            }
+            @media screen and (max-width: $media-md) {
+                font-size: 100px;
+            }
+       
+            span {
+                display: block;
+                
+            }
+            .top {
+                text-align: left;
+            }
+            .bottom {
+                text-align: right;
+                color: $color-primary;
+            }
+            .top, .bottom {
+                @media screen and (max-width: $media-sm) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+// ---------------------------------------- //
+// ------------- Roadmap Grid ------------- //
+// ---------------------------------------- //
+.roadmap-wrapper {
+    max-width: 900px;
+    margin: 30px auto;
+    @media screen and (max-width: $media-xl) {
+        padding-right: 100px;
+    }
+    @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+        padding-right: unset;
+    }
+    @media screen and (max-width: $media-sm) {
+        margin: 30px -10px;
+    }
+}
+
+.roadmap-grid {
+    position: relative;
+    min-height: $block-height * 4;
+    width: 100%;
+
+    .block {
+        position: absolute;
+        height: $block-height;
+        transition: all 0.3s ease-in;
+        color: white;
+        padding: 2px;
+
+        &.active {
+            width: 100% !important;
+            height: 100% !important;
+            top: 0 !important;
+            right: 0;
+
+            .block-content {
+                overflow-y: scroll;
+                cursor: unset;
+                opacity: 1;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                @media screen and (max-width: $media-md) {
+                    .block-img-wrapper {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+
+        .block-content {
+            position: relative;
+            padding: 25px;
+            width: 100%;
+            height: 100%;
+            background-color: $color-black2;
+            border: 0.5px solid $color-gray-026;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            @media screen and (max-width: $media-sm) {
+                padding: 15px;
+            }
+        }
+        
+        &:not(:last-of-type) {
+            &:nth-of-type(odd) {
+                left: 0;
+            }
+            &:nth-of-type(even) {
+                right: 0;
+            }
+        }
+
+        &:nth-of-type(1),
+        &:nth-of-type(4),
+        &:nth-of-type(5) {
+            width: 45%;
+            @media screen and (max-width: $media-md) {
+                width: 50%;
+                &.active {
+                    overflow: hidden;
+                }
+            }
+        }
+        &:nth-of-type(2),
+        &:nth-of-type(3),
+        &:nth-of-type(6) {
+            width: 55%;
+            @media screen and (max-width: $media-md) {
+                width: 50%;
+                &.active {
+                    overflow: hidden;
+                }
+            }
+        }
+        
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+            top: 0;
+        }
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+            top: $block-height;
+        }
+        &:nth-of-type(5),
+        &:nth-of-type(6) {
+            top: $block-height * 2;
+        }
+        &:nth-of-type(7) {
+            top: $block-height * 3;
+        }
+
+        &:last-of-type {
+            left: 0;
+            width: 100% !important;
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// -------------- Block Title ------------- //
+// ---------------------------------------- //
+.roadmap-grid {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto;
+    min-height: $block-height * 4;
+
+    .main-title {
+        color: $color-primary;
+        font-family: $font-roboto;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 20px;
+
+        @media screen and (max-width: $media-sm) {
+            font-size: 16px;
+        }
+    }
+
+    .block {
+        .block-content {
+            .block-title-wrapper {
+                h4 {
+                    display: flex;
+                    flex-direction: column;
+    
+                    .block-title-idx {
+                        font-family: $font-fatFrank;
+                        font-weight: 400;
+                        font-size: 30px;
+                        margin-bottom: 7px;
+                    }     
+                    .block-title {
+                        line-height: 1.2;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// -------------- Block Image ------------- //
+// ---------------------------------------- //
+.roadmap-grid {
+    .block {
+        .block-content {
+            .block-img-wrapper {
+                width: 130px;
+                height: auto;
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                transition: opacity 0.3s;
+
+                @media screen and (max-width: $media-sm) {
+                    width: 100px;
+                    bottom: 15px;
+                    right: 15px;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0.65;
+                    user-select: none;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// --------------- Block Text ------------- //
+// ---------------------------------------- //
+.roadmap-grid {
+    .block {
+        &.active {
+            .block-content {
+                .block-text-wrapper {
+                    visibility: visible;
+                    opacity: 1;
+                    transition-delay: 0.2s;
+                    padding-top: 20px;
+
+                    @for $i from 1 to 10 {
+                        .block-text-section:nth-of-type(#{$i}) { 
+                            animation-name: fadeIn;
+                            animation-duration: 0.3s;
+                            animation-delay: $i * 0.3s;
+                            animation-fill-mode: forwards; 
+                        }
+                    }
+                }
+            }
+        }
+        .block-content {
+            .block-text-wrapper {
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.3s;
+                color: white;
+
+                .block-text-section {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------- Block Text Content --------- //
+// ---------------------------------------- //
+.roadmap-grid {
+    .block {
+        .block-content {
+            .block-text-wrapper {
+                .block-text-section {
+                    margin-bottom: 20px;
+
+                    h5 {
+                        margin-bottom: 7px;
+                    }
+
+                    p {
+                        color: $color-white-05;
+                        opacity: 0.8;
+                        line-height: 1.35;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------- Block Close Button --------- //
+// ---------------------------------------- //
+.roadmap-grid {
+    .block {
+        &.active {
+            .block-content {
+                .close {
+                    opacity: 1;
+                    visibility: visible;
+                    transition-delay: 0.3s;
+                }
+            }
+        }
+        .block-content {
+            .close {
+                @include flexCenter();
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 35px;
+                height: 35px;
+                background-color: $color-primary;
+                border-radius: 50%;
+                cursor: pointer;
+                opacity: 0;
+                visibility: visible;
+                transition: all 0.3s;
+            
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 20px;
+                    height: 2px;
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------- Block Contact Form --------- //
+// ---------------------------------------- //
+.roadmap-grid {
+    .block {
+        .block-content {
+            .contact-form {
+                max-width: 520px;
+                padding-top: 20px; 
+
+                .form-block {
+                    &:not(:last-of-type) {
+                        margin-bottom: 15px;
+                    }
+
+                    label {
+                        display: block;
+                        color: $color-gray;
+                        margin-bottom: 5px;
+                        font-family: $font-roboto;
+                        user-select: none;
+                    }
+
+                    input[type="email"], textarea {
+                        background-color: $color-gray3;
+                        border: 0.5px solid $color-gray-026;
+                        font-family: $font-roboto;
+                        border-radius: 5px;
+                        width: 100%;
+                        color: $color-white;
+                        font-size: 16px;
+                        font-weight: 300;
+                    }
+                    input[type="email"] {
+                        display: flex;
+                        align-items: center;
+                        height: 40px;
+                        padding: 0 7px;
+                    }
+                    textarea {
+                        resize: none;
+                        height: 250px;
+                        padding: 10px;
+                    }
+                    #submit-btn {
+                        display: block;
+                        margin-left: auto;
+                        width: 140px;
+                        height: 40px;
+                        border: none;
+                        border-radius: 4px;
+                        background-color: $color-white;
+                        font-family: $font-roboto;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        font-size: 17px;
+                        cursor: pointer;
+                        transition: all 0.3s;
+
+                        &:hover {
+                            transform: translate(0, -5px);
+                        }
+
+                        @media screen and (max-width: $media-sm) {
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

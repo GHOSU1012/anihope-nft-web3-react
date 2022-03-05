@@ -7,7 +7,7 @@ class Try extends React.Component {
                 <div className="header-container">
                     <div className="logo-container">
                         <a href="#">
-                            <img src="/images/logo/logo-light.png" alt="AniHope Official Logo"/>
+                            <img src="/images/logo/logo-light.png" alt="AniHope Official Logo" />
                         </a>
                     </div>
                     <div className="burger-container">
@@ -16,13 +16,13 @@ class Try extends React.Component {
                     </div>
                     <div className="icons-container">
                         <a href="#">
-                            <img src="/images/icons/discord.svg" alt="Discord"/>
+                            <img src="/images/icons/discord.svg" alt="Discord" />
                         </a>
                         <a href="#">
-                            <img src="/images/icons/twitter.svg" alt="Twitter"/>
+                            <img src="/images/icons/twitter.svg" alt="Twitter" />
                         </a>
                         <a href="#">
-                            <img src="/images/icons/instagram.svg" alt="Instagram"/>
+                            <img src="/images/icons/instagram.svg" alt="Instagram" />
                         </a>
                     </div>
                 </div>

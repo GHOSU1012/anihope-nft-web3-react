@@ -1,0 +1,238 @@
+// ---------------------------------------- //
+// ---------------- Header ---------------- //
+// ---------------------------------------- //
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100%;
+    background: $color-black-05;
+    border-left: 1px solid $color-white-02;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+    padding-top: 100px;
+    z-index: 11;
+    transition: all 0.3s;
+
+    &.active {
+        width: 100%;
+        @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+            height: 100vh;
+        }
+    }
+    
+
+    @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+        padding-top: 0;
+        width: 100%;
+        height: 70px;
+        border-left: none;
+        border-bottom: 1px solid $color-white-02;
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------- Header Container ----------- //
+// ---------------------------------------- //
+.header {
+    .header-container {
+        position: relative;
+        max-width: 100px;
+        margin-left: auto;
+
+        @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 100%;
+            max-height: 70px;
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------------- Logo ----------------- //
+// ---------------------------------------- //
+.header {
+    .header-container {
+        .logo-container {
+            width: 70px;
+            height: auto; 
+            margin: auto;
+            margin-bottom: 50px;
+            
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            @media screen and (max-width: $media-md), screen and (max-height: 600px)  {
+                margin: 0;
+                width: 60px;
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ---------------- Burger ---------------- //
+// ---------------------------------------- //
+.header {
+    .header-container {
+        height: 100%;
+
+        .burger-container {
+            cursor: pointer;
+            width: 40px;
+            margin: 0 auto;
+            padding: 10px 0;
+
+            @media screen and (max-width: $media-md), screen and (max-height: 600px)  {
+                margin: 0;
+            }
+
+            &.active {
+                .line-top {
+                    margin-bottom: 0;
+                    transform: rotate(45deg);
+                }
+                .line-bottom {
+                    width: 40px;
+                    transform: rotate(-45deg) translate(2.5px, -2.5px);
+                }
+            }
+
+            div {
+                height: 4px;
+                border-radius: 3px;
+                background-color: $color-white;
+                transition: all 0.3s;
+            }   
+            .line-top {
+                width: 40px;
+                margin-bottom: 5px;
+            }
+            .line-bottom {
+                width: 28px;
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------------- Icons ---------------- //
+// ---------------------------------------- //
+.header {
+    .header-container {
+        .icons-container {
+            @include flexCenter(column);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+
+            a {
+                margin-bottom: 20px;
+                transition: transform 0.3s;
+
+                &:hover {
+                    transform: translateY(-7px);
+                }
+
+                @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+                    margin: 0 10px;
+
+                    img {
+                        width: 30px;
+                    }
+                }
+            }
+
+            @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+                flex-direction: row;
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------------- List ----------------- //
+// ---------------------------------------- //
+.header {
+    .navbar {
+        .nav-list-container  {
+            @include flexCenter();
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            overflow: hidden;
+
+            &.active {
+                width: unset;
+                max-width: 100%;
+                overflow: unset;
+                right: 100px;
+                @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+                    right: 0;
+                    top: 70px;
+                    height: 100%;
+                }
+                ul {
+                    li {
+                        .navbar-link:link,
+                        .navbar-link:visited {
+                            opacity: 1;
+                        }
+                    }
+                    @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+                        margin-top: -70px;
+                    }
+                    @media screen and (max-height: 600px) {
+                        line-height: 1.2;                    
+                    }
+                    @media screen and (max-width: $media-sm) {
+                        line-height: 1.5;                    
+                        
+                    }
+                }
+            }
+
+            ul {
+                line-height: 2;
+
+                li {
+                    text-align: center;
+                    .navbar-link:link,
+                    .navbar-link:visited {
+                        font-family: $font-fatFrank;
+                        font-size: 60px;
+                        color: $color-white;
+                        text-transform: uppercase;
+                        transition: color 0.2s, opacity 0.2s;
+                        opacity: 0;
+                        transition-delay: 0.5s;
+
+                        @media screen and (max-width: $media-md), screen and (max-height: 600px) {
+                            font-size: 45px;
+                        }
+                    }
+
+                    .navbar-link:hover {
+                        color: $color-white-05;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+// Hero
+@import "hero";
+// Collection
+@import "collection";
+// Team
+@import "team";
+// Roadmap
+@import "roadmap";
+// FAQ
+@import "faq";
+
+html {
+    scroll-behavior: smooth;
+}
+
+#faq, #team {
+    .section-title {
+        padding: 60px 0;
+
+        h2 {
+            font-family: $font-fatFrank;
+            text-align: center;
+            font-weight: 700;
+            font-size: 130px;
+        }
+    }
+}
+
+#faq {
+    .section-title {
+        h2 {
+            color: $color-white;
+        }
+    }
+}
+
+#team {
+    .section-title {
+        h2 {
+            color: $color-black;
+            padding: 0 100px;
+
+            @media screen and (max-width: $media-md) {
+                font-size: 100px;
+                padding: 0 20px;
+            }
+            @media screen and (max-width: $media-sm) {
+                font-size: 80px;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+// Utilities
+@import "utilities/index";
+// Base
+@import "base/index";
+// Layout 
+@import "layout/index";
+// Components
+@import "components/index";
+// Sections
+@import "sections/index";
+
+body, html {
+    height: 100%;
+}

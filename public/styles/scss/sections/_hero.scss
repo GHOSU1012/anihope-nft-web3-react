@@ -1,0 +1,286 @@
+// ---------------------------------------- //
+// -------------- Basic Setup ------------- //
+// ---------------------------------------- //
+#home {
+    position: relative;
+    @media screen and (max-width: $media-md) {
+        padding-top: 69px;
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------------- Hero ----------------- //
+// ---------------------------------------- //
+#home {
+    .hero {
+        position: relative;
+    }
+}
+
+#home {
+    .video-wrapper {
+        min-height: fit-content;
+    }    
+}
+
+#home {
+    .video-wrapper {
+        video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-width: 100%;
+            min-height: 100%;
+        }
+    }
+}
+
+#home {
+    .hero-text-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-black-07;
+        color: $color-white;
+        @media screen and (max-width: $media-xl) {
+            padding-top: 160px;
+        }
+        @media screen and (max-height: 600px) {
+            padding-top: 220px;
+        }
+        @media screen and (max-width: $media-sm) {
+            padding-top: 180px;
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: fit-content;
+            margin-top: -100px;
+
+            @media screen and (max-width: 576px) {
+                text-align: center;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-top: -180px;
+            }
+            h1,
+            h2, 
+            h3 {
+                text-shadow: 0px 4px 4px $color-black-025;
+                width: fit-content;
+            }
+            h1 {
+                font-size: 100px;
+                line-height: 0.4;
+                margin-bottom: 40px;
+                font-family: $font-helloGorgeous;
+                letter-spacing: 7px;
+
+                span {
+                    font-size: 21px;
+                    font-family: $font-alegreSans;
+                    @media screen and (max-width: $media-sm) {
+                        display: none;
+                    }
+                }
+
+                @media screen and (max-width: $media-md) {
+                    font-size: 70px;
+                }
+                @media screen and (max-width: $media-sm) {
+                    font-size: 50px;
+                    margin-bottom: 30px;
+                    letter-spacing: 0;
+                    line-height: unset;
+                }
+            }
+            h2 {
+                font-family: $font-alegreSans;
+                margin-bottom: 40px;
+                font-size: 50px;
+                @media screen and (max-width: $media-md) {
+                    font-size: 40px;
+                }
+                @media screen and (max-width: $media-sm) {
+                    font-size: 30px;
+                    margin-bottom: 30px;
+                }
+            }
+            h3 {
+                font-family: $font-roboto;
+                font-weight: 400;
+                font-size: 28px;
+                @media screen and (max-width: $media-md) {
+                    font-size: 25px;
+                }
+                @media screen and (max-width: $media-sm) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// --------------- Sub Hero --------------- //
+// ---------------------------------------- //
+#home {
+    .sub-hero {
+        padding-top: 120px;
+        margin-bottom: 120px;
+
+        @media screen and (max-width: $media-md) {
+            margin-bottom: 60px;
+        }
+        @media screen and (max-width: $media-sm) {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+#home {
+    .sub-hero {
+        .hero-title {
+            @include flexCenter();
+            margin-bottom: 50px;
+            @media screen and (max-width: $media-md) {
+                margin-bottom: 30px;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                color: $color-white;
+                font-size: 130px;
+                font-family: $font-fatFrank;
+                letter-spacing: 7px;
+                line-height: 0.85;
+
+                @media screen and (max-width: $media-lg) {
+                    transform: translateX(35px);
+                }
+          
+                span {
+                    color: $color-primary;
+                    margin-left: -75px;
+                }
+
+                @media screen and (max-width: $media-md) {
+                    font-size: 100px;
+                }
+            } 
+        }
+
+        .description-container {
+            max-width: 450px;
+            margin: 0 auto 40px auto;
+            transform: translateX(50px);
+
+            @media screen and (max-width: $media-lg) {
+                max-width: 400px;
+                transform: translateX(35px);
+            }
+            @media screen and (max-width: $media-sm) {
+                transform: translateX(0);
+            }
+            
+
+            p {
+                color: $color-white;
+                font-family: $font-roboto;
+                font-weight: 400;
+                font-size: 40px;
+                width: 100%;
+                margin: 0 auto;
+                @media screen and (max-width: $media-lg) {
+                    transform: translateX(50px);
+                    font-size: 28px;
+                }
+                @media screen and (max-width: $media-md) {
+                    transform: translateX(0);
+                }
+                
+                & > span {
+                    display: block;
+                }
+                .top {
+                    text-align: right;
+                }
+                .bottom {
+                    text-align: left;
+                    span {
+                        color: $color-primary;
+                    }
+                }
+            }
+        }
+
+        .social-media-container {
+            @include flexCenter();
+
+            a:link,
+            a:visited {
+                @include flexCenter();
+                font-family: $font-roboto;
+                text-transform: uppercase;
+                font-weight: 700;
+                background-color: $color-white;
+                color: $color-black;
+                width: 260px;
+                height: 53px;
+                border-radius: 5px;
+                transition: all 0.3s;
+                margin-left: 150px;
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
+
+                @media screen and (max-width: $media-md) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// -------- Sub Hero - Backgrounds -------- //
+// ---------------------------------------- //
+#home {
+    .sub-hero {
+        .bgs {
+            .cat-bg {
+                position: absolute;
+                bottom: -60px;
+                left: 0;
+                max-width: 550px;
+                height: auto;
+                z-index: 1;
+
+                @media screen and (max-width: $media-xl) {
+                    max-width: 470px;
+                }
+                @media screen and (max-width: $media-lg) {
+                    max-width: 380px;
+                }
+                @media screen and (max-width: $media-md) {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.container {
+    position: relative;
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+// Remove scrollbar
+body::-webkit-scrollbar {
+    display: none;
+}

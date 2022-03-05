@@ -1,0 +1,58 @@
+// ---------------------------------------- //
+// ---------------- Colors ---------------- //
+// ---------------------------------------- //
+// Primary
+$color-primary: #85C069;
+$color-primary-2: #769960;
+$color-primary-3: #92B979;
+// White - Black - Gray - Red - Blue
+$color-white: #FFFFFF;
+$color-black: #0D0D0D;
+$color-black2: #121417;
+$color-black3: #232323;
+$color-gray: #545454;
+$color-gray3: #3A3E44;
+$color-red: #B75555;
+$color-blue: #43B1DF;
+// Opacity
+$color-white-02: rgba(255, 255, 255, 0.2); // #FFFFFF - border
+$color-white-05: rgba(255, 255, 255, 0.5); //
+$color-white-08: rgba(255, 255, 255, 0.8); //
+$color-black-025: rgba(0, 0, 0, 0.25);
+$color-black-05: rgba(13, 13, 13, 0.5);
+$color-black-07: rgba(13, 13, 13, 0.7);
+$color-gray-02: rgba(2, 2, 2, 0.2); // #494949 - bg
+$color-gray-026: rgba(150, 150, 150, 0.26);
+// Roadmap blocks
+$block-height: 220px;   
+
+
+// ---------------------------------------- //
+// ----------------- Fonts ---------------- //
+// ---------------------------------------- //
+$font-roboto: 'Roboto', sans-serif;
+$font-alegreSans: alegreSans;
+$font-helloGorgeous: helloGorgeous;
+$font-fatFrank: fatFrank;
+
+@font-face {
+    font-family: alegreSans;
+    src: url("/fonts/AlegreSans.ttf");
+}
+@font-face {
+    font-family: helloGorgeous;
+    src: url("/fonts/HelloGorgeous.ttf");
+}
+@font-face {
+    font-family: fatFrank;
+    src: url("/fonts/FatFrank.ttf");
+}
+
+
+// ---------------------------------------- //
+// -------------- Media Query ------------- //
+// ---------------------------------------- //
+$media-sm: 576px;
+$media-md: 768px;
+$media-lg: 992px;
+$media-xl: 1200px;

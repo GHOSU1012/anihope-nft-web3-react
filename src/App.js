@@ -15,6 +15,7 @@ const Stddiv = styled.div`
   }
   @media (orientation: portrait) {
     flex-direction: column-reverse;
+    align-items: center;
   }
 }
 `
@@ -37,17 +38,18 @@ const MImgdiv = styled.div`
     // order: 2;
   }
   @media (orientation: portrait) {
-    width: 100%;
-    height: calc(100vw * 0.88);
+    max-width: 500px;
+    width: 80%;
+    // height: calc(100vw * 0.88);
     // order: 1;
   }
 `
 const Branddiv = styled.div`
   color: white;
   font-weight: bold;
-  position: fixed;
   
   @media (orientation: landscape) {
+    position: fixed;
     font-size: 30px;
     top: 70px;
     left: 50px;
@@ -55,9 +57,11 @@ const Branddiv = styled.div`
   @media (orientation: portrait) {
     font-size: 30px;
     // top: calc(100vw * 0.88 - 50px);
-    top: 80px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    order: 1;
     // right: 20px;
-    left: 20px;
+    // text-align: center;
   }
 `
 
@@ -65,6 +69,10 @@ const StdImg = styled.img`
   width: 100%;
   height: 100%;
   alt: mainImage;
+
+  @media (orientation: portrait) {
+    border-radius: 20px;
+  }
 `
 
 class App extends React.Component {
@@ -72,7 +80,7 @@ class App extends React.Component {
     return (
       <>
         <Stddiv >
-          <Branddiv>ANYHOPE</Branddiv>
+          <Branddiv>ANIHOPE</Branddiv>
           <CWdiv>
             <ConnectWallet />
           </CWdiv>
@@ -80,8 +88,8 @@ class App extends React.Component {
             <StdImg src="images/main.jpg" />
           </MImgdiv>
         </Stddiv>
-        <Try />
-        <Footer />
+        {/* <Try /> */}
+        {/* <Footer /> */}
         <NoticeAlert />
       </>
     )

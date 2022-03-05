@@ -1,0 +1,392 @@
+// ---------------------------------------- //
+// -------------- Basic Setup ------------- //
+// ---------------------------------------- //
+#team {
+    background: $color-white;
+}
+
+#team {
+    .team-groups {
+        h3 {
+            font-family: $font-roboto;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 50px 0;
+            font-size: 24px;
+            color: $color-primary;
+        }
+        .groups {
+            padding: 0 30px;
+            &:not(:first-of-type) {
+                padding-bottom: 180px;
+            }
+    
+            &:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
+        }
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+    
+            .box {
+                margin: 0 1% 70px 1%;
+    
+                @media screen and (max-width: $media-md) {
+                    margin: 0 1% 50px 1%;
+                }
+    
+                & > div {
+                    &:hover {
+                        h4 {
+                            &::after {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ---------------- Wrappers -------------- //
+// ---------------------------------------- //
+#team {
+    .team-groups {
+        .founders-wrapper {
+            .wrapper {
+                .box {
+                    // width: 30%;
+                    height: 350px;
+    
+    
+                    @media screen and (min-width: $media-sm) {
+                        width: 100%;
+                    }
+                    @media screen and (min-width: $media-md) {
+                        width: 48%;
+                    }
+                    @media screen and (min-width: $media-lg) {
+                        width: 30%;
+                    }
+    
+    
+                    .member-img-container {
+                        max-width: 250px;
+                        height: auto;
+                        @media screen and (min-width: $media-md) {
+                            width: 220px;
+                            height: 220px;
+                        }
+                        @media screen and (min-width: $media-lg) {
+                            width: 200px;
+                            height: 200px;
+                        }
+                        @media screen and (min-width: $media-xl) {
+                            width: 250px;
+                            height: 250px;
+                        }
+                      
+                    }
+                }
+            }
+        }
+    
+        .team-wrapper {
+            .wrapper {
+                .box {
+                    width: 100%;
+                    height: 350px;
+                    
+                    @media screen and (min-width: $media-md) {
+                        width: 45%;
+                    }
+                    @media screen and (min-width: $media-lg) {
+                        width: 30%;
+                    }
+                    @media screen and (min-width: $media-xl) {
+                        width: 23%;
+                    }
+    
+                    .member-img-container {
+                        width: 200px;
+                        height: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------------- Avatar --------------- //
+// ---------------------------------------- //
+#team {
+    .team-groups {
+        .member-img-container {
+            @include flexCenter();
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+    
+            button {
+                display: block;
+                width: 100%;
+                height: 100%;
+                transition: all 0.3s;
+                position: relative;
+    
+                &:hover {
+                    cursor: url("/assets/images/icons/open.png"), auto;
+                    background-color: $color-black;
+                    opacity: 0.5;
+                }
+    
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+}
+
+
+// ---------------------------------------- //
+// ------------------ Name ---------------- //
+// ---------------------------------------- //
+#team {
+   .team-groups {
+        h4 {
+            position: relative;
+            font-family: $font-helloGorgeous;
+            font-weight: 400;
+            font-size: 20px;
+            color: $color-primary;
+            letter-spacing: 2px;
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto 10px auto;
+            white-space: nowrap;
+            
+            &::after {
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background-color: $color-primary;
+                margin: 6px auto 0 auto;
+                transition: all 0.4s;
+                border-radius: 5px;
+            }
+        }
+    }   
+}
+
+
+// ---------------------------------------- //
+// ------------------ Role ---------------- //
+// ---------------------------------------- //
+#team {
+    .team-groups {
+        p {
+            font-family: $font-roboto;
+            font-weight: 400;
+            font-size: 20px;
+            color: $color-black-05;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: capitalize
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ----------------- Icons ---------------- //
+// ---------------------------------------- //
+#team {
+    .team-groups {
+        .icons {
+            @include flexCenter();
+    
+            a {
+                margin: 0 7px;
+                transition: all 0.3s;
+    
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// ------ Modal - Popup Basic Setup ------- //
+// ---------------------------------------- //
+#team {
+    .modal {
+        .frame {
+            @include flexCenter();
+            width: 100%;
+            height: 100%;
+
+        }
+
+        &.active {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $color-black-05;
+            z-index: 3;
+        }
+    
+        .popup {
+            position: relative;
+            width: 790px;
+            min-height: 390px;
+            background-color: $color-black2;
+            border-radius: 5px;
+            display: flex;
+            padding: 30px 0;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: liftUp 0.5s forwards;
+
+            @media screen and (max-width: $media-lg) {
+                width: 700px;
+            }
+            @media screen and (max-width: $media-md) {
+                flex-direction: column;
+                width: 600px;
+                margin: 0 20px;
+            }
+            @media screen and (max-height: 600px) {
+                min-height: 95%;
+            }
+ 
+
+            @keyframes liftUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(100px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            .close {
+                @include flexCenter();
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 35px;
+                height: 35px;
+                background-color: $color-primary;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 20px;
+                    height: 2px;
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------- //
+// -------- Modal - Popup Sections -------- //
+// ---------------------------------------- //
+#team {
+    .modal {
+        .popup {
+            .profile {
+                @include flexCenter(column);
+                padding: 0 50px;
+                border-right: 2px solid $color-white-02;
+
+                @media screen and (max-width: $media-md) {
+                    border-right: unset;
+                    margin-bottom: 30px;
+                }
+
+                .avatar {
+                    width: auto;
+                    height: 180px;
+                    border-radius: 22px;
+                    margin-bottom: 13px;
+                }
+                h3, p {
+                    text-align: center;
+                }
+                h3 {
+                    font-family: $font-helloGorgeous;
+                    color: $color-primary;
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-family: $font-roboto;
+                    font-weight: 400;
+                    color: $color-white-05;
+                    letter-spacing: 2px;
+                    font-size: 14px;
+                    margin-bottom: 15px;
+                    text-transform: capitalize;
+                }
+                .icons {
+                    @include flexCenter();
+
+                    a {
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#team {
+    .modal {
+        .popup {
+            .description {
+                @include flexCenter();
+                padding: 0 25px;
+                color: $color-white;
+                font-family: $font-roboto;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 1.5;
+
+                @media screen and (max-width: $media-lg) {
+                    font-size: 16px;
+                }
+                @media screen and (max-width: $media-sm) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
