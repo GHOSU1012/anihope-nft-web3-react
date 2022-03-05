@@ -37,6 +37,8 @@ const CWdiv = styled.div`
   }
 `
 const MImgdiv = styled.div`
+  display: felx;
+  align-items: center;
   @media (orientation: landscape) {
     width: 52%;
     height: 100vh;
