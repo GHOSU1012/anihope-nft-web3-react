@@ -4,7 +4,7 @@ import Footer from "./views/Footer"
 import Righter from './views/Righter';
 import NoticeAlert from './views/NoticeAlert';
 import ConnectWallet from './views/ConnectWallet'
-import Try from './views/Try';
+// import Righter from './views/Righter';
 // import Grid from '@material-ui/core/Grid';
 
 const Stddiv = styled.div`
@@ -95,7 +95,7 @@ class App extends React.Component {
             <StdImg src="images/main.jpg" />
           </MImgdiv>
         </Stddiv>
-        <Try />
+        <Righter />
         <Footer style={{zIndex: '12'}}/>
         <NoticeAlert />
       </>

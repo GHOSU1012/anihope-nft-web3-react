@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import Button from '@mui/material/Button';
 import MyBtn from '../components/MyBtn';
+import SelectWalletModal from '../components/SelectWalletModal'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -43,29 +44,7 @@ const Ntfcount = styled.input`
     margin: 20px;
 `
 
-const ModalStyle = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '300',
-    bgcolor: 'background.paper',
-    borderRadius: '10px',
-    boxShadow: '24',
-    p: '20px',
-    // textAlign: 'center'
-};
 
-const BtnStyle = {
-    color: 'black',
-    fontSize: '16px',
-    padding: '16px',
-    width: '260px',
-    borderRadius: '10px',
-    justifyContent: 'left',
-    paddingLeft: '30px',
-    gap: '20px'
-}
 
 // const ControlBtn = styled.button`
 //     background: white;
@@ -100,19 +79,46 @@ const btntitle = {
 // }
 
 const ConnectWallet = () => {
-    const [state, setOpen] = useState(1);
+    const [state, setStateVal] = useState(1);
     const [nftNum, setNftNum] = useState(1);
-    const { connect, disconnect, isActive, account } = useMetaMask();
-    const [open, setModalOpen] = useState(false);
-    const handleOpen = () => setModalOpen(true);
-    const handleClose = () => setModalOpen(false);
+    // const { connect, disconnect, isActive, account } = useMetaMask();
+    const [modalOpen, setModalOpen] = useState(false);
+    const [account, setAccount] = useState('');
 
-    useEffect(() => {
-        if (isActive)
-            setOpen(2);
-        else
-            setOpen(1);
-    });
+    const connectMetamask = async () => {
+        // handleClose();
+        // Check if MetaMask is installed on user's browser
+        if (window.ethereum) {
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+
+            console.log(accounts);
+            console.log(chainId);
+            // Check if user is connected to Mainnet
+            if (chainId != '0x1') {
+                alert("Please connect to Mainnet");
+            }
+            else {
+                let wallet = accounts[0];
+                console.log(wallet);
+                setStateVal(2);
+                setAccount(wallet);
+                // setWalletAddress(wallet);
+            }
+        } else {
+            alert("Please install Mask");
+        }
+    }
+
+    const mainBtnClick = () => {
+        if (state == 1) {
+            console.log("connect wallet modal");
+            setModalOpen(true);
+        }
+        else {
+
+        }
+    };
 
     const ReduceFunc = () => {
         setNftNum(nftNum > 1 ? nftNum - 1 : nftNum);
@@ -121,36 +127,13 @@ const ConnectWallet = () => {
         setNftNum(nftNum < 3 ? nftNum + 1 : nftNum);
     }
 
-    const SelectWalletModal = (props) => {
-        return (
-            <Modal open={open} onClose={handleClose}>
-                <Box sx={ModalStyle}>
-                    <Button variant="text" sx={BtnStyle}>
-                        <img src='images/metamask.png' width='50px' />
-                        <div>Metamask</div>
-                    </Button>
-                    <Divider />
-                    <Button variant="text" sx={BtnStyle}>
-                        <img src='images/walletconnect.png' width='50px' />
-                        <div>WalletConnect</div>
-                    </Button>
-                    <Divider />
-                    <Button variant="text" sx={BtnStyle}>
-                        <img src='images/coinbase.png' width='50px' />
-                        <div>Coinbase</div>
-                    </Button>
-                </Box>
-            </Modal>
-        );
-    }
-
     return (
         <WalletDiv>
             <div style={{ fontSize: '22px', marginBottom: '16px' }}>
-                {isActive ? title.connected : title.notconnected}
+                {state != 1 ? title.connected : title.notconnected}
             </div>
 
-            {isActive ?
+            {state != 1 ?
                 <Addressdiv>
                     <img src="images/metamask.png" width='30px' />
                     <div>{account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : ''}</div>
@@ -168,7 +151,7 @@ const ConnectWallet = () => {
                     <MyBtn type='add' onClick={AddFunc} ></MyBtn>
                 </div> : <></>
             }
-            <Button variant="contained" onClick={handleOpen}
+            <Button variant="contained" onClick={mainBtnClick}
                 style={{
                     background: 'white', color: 'black', width: '260px',
                     height: '60px', display: state == 4 ? 'none' : 'block'
@@ -184,7 +167,9 @@ const ConnectWallet = () => {
                 }
             </Button>
 
-            <SelectWalletModal />
+            <SelectWalletModal mOpen={modalOpen}
+                setModalOpen={() => { setModalOpen(false) }}
+                connectMetamask={connectMetamask} />
         </WalletDiv >
     );
 };

@@ -40,6 +40,12 @@ const Button = styled.button`
     background-color: transparent;
     border: none;
 `
+const StyledA = styled.a`
+    transition: transform 0.3s;
+    :hover{
+        transform: translateY(-7px);
+    }
+`
 
 class Footer extends React.Component {
     render() {
@@ -49,9 +55,15 @@ class Footer extends React.Component {
                     TERMS & CONTIDIONS <br /> PRIVACY POLICY <br /> © 2022 ANIHOPE
                 </ColumnDiv>
                 <RowDiv>
-                    <Button img="url('images/discord.png')"></Button>
-                    <Button img="url('images/twitter.png')"></Button>
-                    <Button img="url('images/instagram.png')"></Button>
+                    <StyledA href="#">
+                        <img src="/images/icons/discord.svg" alt="Discord" />
+                    </StyledA>
+                    <StyledA href="#">
+                        <img src="/images/icons/twitter.svg" alt="Twitter" />
+                    </StyledA>
+                    <StyledA href="#">
+                        <img src="/images/icons/instagram.svg" alt="Instagram" />
+                    </StyledA>
                 </RowDiv>
             </StdDiv>
         )

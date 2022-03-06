@@ -1,102 +1,64 @@
 import React from 'react';
-import styled from 'styled-components'
 
-const StdDiv = styled.div`
-    position: fixed;    
-    display: flex;
-    top: 0;
+const Righter = () => {
 
-    @media (orientation: landscape) {
-        flex-direction: column;
-        height: calc(100% - 70px);
-        right: 0;
-    }
-    
-    @media (orientation: portrait) {
-        flex-direction: row;
-        width: 100%;
-        left: 0;
-    }
-    align-items: center;
-    justify-content: space-between;
-`
-const RowDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    @media (orientation: portrait) {
-        flex-direction: row !important;
-        padding: 0px;
-        // justify-content: center;
-    }
-    gap: 20px;
-    padding-top: 60px;
-`
-const RowDiv2 = styled.div`
-    display: flex;
-    padding: 20px;
-    gap: 28px;
-    
-    // flex-direction: column;
-    
-    @media (orientation: landscape) {
-        flex-direction: column;
-        // justify-content: center;
-    }
-    @media (orientation: portrait) {
-        flex-direction: row;
-        // justify-content: center;
-    }
-    justify-content: center;
-    flex: 1;
-`
+    const navbarToggle = () => {
+        let burger = document.querySelector('.burger-container');
+        let header = document.querySelector('.header');
+        let navbarList = document.querySelector('.nav-list-container');
 
-const Shadow = styled.div`
-    background: #000;
-    position: fixed;
-    @media (orientation: landscape) {
-        width: 70px;
-        height: 100%;
-    }
-    @media (orientation: portrait) {
-        height: 70px;
-        width: 100%;
-    }
-    z-index: -1;
-    opacity: 0.1;
-`
+        burger.classList.toggle('active');
+        header.classList.toggle('active');
+        navbarList.classList.toggle('active');
+    };
 
-const Button = styled.button`
-    background-image: ${props => props.img};
-    width: 30px;
-    height: 30px;
-    background-size: contain;
-    background-color: transparent;
-    border: none;
-`
-
-// const Responsive = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-// `
-
-class Righter extends React.Component {
-    render() {
-        return (
-            <StdDiv>
-                <Shadow />
-                <RowDiv>
-                    <Button img="url('images/logo.png')"></Button>
-                    <Button img="url('images/instagram.png')"></Button>
-                </RowDiv>
-                <RowDiv2>
-                    <Button img="url('images/discord.png')"></Button>
-                    <Button img="url('images/twitter.png')"></Button>
-                    <Button img="url('images/instagram.png')"></Button>
-                </RowDiv2>
-            </StdDiv>
-        )
-    }
+    return (
+        <div role="banner" className="header">
+            <div className="header-container">
+                <div className="logo-container">
+                    <a href="#">
+                        <img src="/images/logo/logo-light.png" alt="AniHope Official Logo" />
+                    </a>
+                </div>
+                <div className="burger-container" onClick={navbarToggle}>
+                    <div className="line-top"></div>
+                    <div className="line-bottom"></div>
+                </div>
+                <div className="icons-container">
+                    <a href="#">
+                        <img src="/images/icons/discord.svg" alt="Discord" />
+                    </a>
+                    <a href="#">
+                        <img src="/images/icons/twitter.svg" alt="Twitter" />
+                    </a>
+                    <a href="#">
+                        <img src="/images/icons/instagram.svg" alt="Instagram" />
+                    </a>
+                </div>
+            </div>
+            <nav className="navbar">
+                <div className="nav-list-container">
+                    <ul className="navbar-list">
+                        <li className="navbar-item" onClick={navbarToggle}>
+                            <a href="#home" className="navbar-link" style={{ fontFamily: 'inherit' }}>Anihope</a>
+                        </li>
+                        <li className="navbar-item" onClick={navbarToggle}>
+                            <a href="#collection" className="navbar-link" style={{ fontFamily: 'inherit' }}>Collection</a>
+                        </li>
+                        <li className="navbar-item" onClick={navbarToggle}>
+                            <a href="#roadmap" className="navbar-link" style={{ fontFamily: 'inherit' }}>Roadmap</a>
+                        </li>
+                        <li className="navbar-item" onClick={navbarToggle}>
+                            <a href="#team" className="navbar-link" style={{ fontFamily: 'inherit' }}>Team</a>
+                        </li>
+                        <li className="navbar-item" onClick={navbarToggle}>
+                            <a href="#faq" className="navbar-link" style={{ fontFamily: 'inherit' }}>FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    );
 };
 
 export default Righter;
